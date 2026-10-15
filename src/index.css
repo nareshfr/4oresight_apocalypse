@@ -1,0 +1,336 @@
+/* LAST BEACON — Tactical Survival System Design Tokens & Styling */
+
+:root {
+  --font-display: 'Rajdhani', 'Chakra Petch', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Color Palette */
+  --bg-darkest: #04080e;
+  --bg-darker: #070d16;
+  --bg-dark: #0c1524;
+  --bg-card: rgba(10, 20, 35, 0.78);
+  --bg-card-hover: rgba(14, 28, 48, 0.88);
+  --bg-card-solid: #0d192b;
+
+  /* Tactical Accents */
+  --cyan-primary: #00f2fe;
+  --cyan-glow: rgba(0, 242, 254, 0.35);
+  --teal-accent: #0dd3ba;
+  --green-safe: #10b981;
+  --green-glow: rgba(16, 185, 129, 0.4);
+  --amber-warn: #f59e0b;
+  --amber-glow: rgba(245, 158, 11, 0.35);
+  --red-danger: #ef4444;
+  --red-glow: rgba(239, 68, 68, 0.45);
+  --blue-mission: #3b82f6;
+
+  /* Borders & Glass */
+  --border-subtle: rgba(56, 189, 248, 0.16);
+  --border-glow: rgba(0, 242, 254, 0.45);
+  --border-danger: rgba(239, 68, 68, 0.4);
+  --glass-blur: 16px;
+
+  /* Text Colors */
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-cyan: #67e8f9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-darkest);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism Tactical Panels */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+.glass-panel-danger {
+  background: rgba(35, 12, 18, 0.82);
+  border-color: var(--border-danger);
+  box-shadow: 0 8px 32px 0 rgba(239, 68, 68, 0.2);
+}
+
+/* Tactical Corner Accents */
+.tactical-corners {
+  position: relative;
+}
+
+.tactical-corners::before,
+.tactical-corners::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+
+.tactical-corners::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--cyan-primary);
+  border-left: 2px solid var(--cyan-primary);
+}
+
+.tactical-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--cyan-primary);
+  border-right: 2px solid var(--cyan-primary);
+}
+
+/* Typography Helpers */
+.font-tactical {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-mono-tactical {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 10, 20, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.5);
+}
+
+/* Buttons */
+.btn-tactical {
+  background: rgba(14, 28, 48, 0.8);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-tactical:hover {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: var(--cyan-primary);
+  color: #fff;
+  box-shadow: 0 0 16px var(--cyan-glow);
+  transform: translateY(-1px);
+}
+
+.btn-tactical:active {
+  transform: translateY(1px);
+}
+
+.btn-tactical-primary {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.28), rgba(13, 211, 186, 0.2));
+  border-color: var(--cyan-primary);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+}
+
+.btn-tactical-primary:hover {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.4), rgba(13, 211, 186, 0.35));
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.45);
+}
+
+.btn-tactical-danger {
+  background: rgba(239, 68, 68, 0.16);
+  border-color: var(--red-danger);
+  color: #fca5a5;
+}
+
+.btn-tactical-danger:hover {
+  background: rgba(239, 68, 68, 0.28);
+  box-shadow: 0 0 20px var(--red-glow);
+  color: #fff;
+}
+
+/* Badges */
+.badge-tactical {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-cyan {
+  background: rgba(0, 242, 254, 0.12);
+  color: var(--cyan-primary);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+}
+
+.badge-green {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.badge-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.badge-red {
+  background: rgba(239, 68, 68, 0.14);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+@keyframes beacon-expand {
+  0% {
+    r: 12;
+    opacity: 0.9;
+  }
+  70% {
+    r: 54;
+    opacity: 0.15;
+  }
+  100% {
+    r: 70;
+    opacity: 0;
+  }
+}
+
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-flow {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes alert-slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 6s linear infinite;
+  transform-origin: center;
+}
+
+.animate-dash-flow {
+  animation: dash-flow 1.5s linear infinite;
+}
+
+.animate-alert-slide {
+  animation: alert-slide-down 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+/* Scanline / Grid overlay */
+.tactical-grid-bg {
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.scanline-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
